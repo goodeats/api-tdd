@@ -4,5 +4,11 @@ I have extensive experience testing in Ruby on Rails with Rspec, Factory Bot, Ca
 
 # Express Generator
 
-Generated the app with the [Express application generator](https://expressjs.com/en/starter/generator.html)
+Generated the app with the [Express application generator](https://expressjs.com/en/starter/generator.html).
+
+# Jest
+
+Had to install [Jest Snippets](https://marketplace.visualstudio.com/items?itemName=andys8.jest-snippets) so that VS Code would not autofill `it` to `instanceof`.
+
+Using [SuperTest](https://github.com/visionmedia/supertest) to simulate HTTP requests and assert their responses.
 
