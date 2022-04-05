@@ -34,7 +34,43 @@ describe('Todos API', () => {
         );
       });
   });
-  it('GET /todos/:id --> 404 if not found', () => {});
-  it('POST /todos --> newly created todo', () => {});
-  it('POST /todos --> validates request body', () => {});
+
+  it('GET /todos/:id --> 404 if not found', () => {
+    return request(app)
+      .get('/todos/9999')
+      .expect('Content-Type', /json/)
+      .expect(404)
+      .then((response) => {
+        // generator returns an html page
+      });
+  });
+
+  it('POST /todos --> newly created todo', () => {
+    return request(app)
+      .post('/todos')
+      .send({
+        name: 'do dishes',
+      })
+      .expect('Content-Type', /json/)
+      .expect(201)
+      .then((response) => {
+        expect.objectContaining({
+          name: 'do dishes',
+          completed: false,
+        });
+      });
+  });
+
+  it('POST /todos --> validates request body', () => {
+    return request(app)
+      .post('/todos')
+      .send({
+        name: 123,
+      })
+      .expect('Content-Type', /json/)
+      .expect(400)
+      .then((response) => {
+        //
+      });
+  });
 });
