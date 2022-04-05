@@ -12,3 +12,4 @@ Had to install [Jest Snippets](https://marketplace.visualstudio.com/items?itemNa
 
 Using [SuperTest](https://github.com/visionmedia/supertest) to simulate HTTP requests and assert their responses.
 
+Using [http-errors](https://github.com/jshttp/http-errors) to construct error responses.

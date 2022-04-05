@@ -38,13 +38,7 @@ describe('Todos API', () => {
   });
 
   it('GET /todos/:id --> 404 if not found', () => {
-    return request(app)
-      .get('/todos/9999')
-      .expect('Content-Type', /json/)
-      .expect(404)
-      .then((response) => {
-        // generator returns an html page
-      });
+    return request(app).get('/todos/9999').expect(404);
   });
 
   it('POST /todos --> newly created todo', () => {
@@ -69,10 +63,6 @@ describe('Todos API', () => {
       .send({
         name: 123,
       })
-      .expect('Content-Type', /json/)
-      .expect(400)
-      .then((response) => {
-        //
-      });
+      .expect(422);
   });
 });
