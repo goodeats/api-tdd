@@ -6,12 +6,13 @@ describe('Todos API', () => {
   it('GET /todos --> array of todos', () => {
     return request(app)
       .get('/todos')
-      .expect('Content-Type', /json/)
       .expect(200)
+      .expect('Content-Type', /json/)
       .then((response) => {
         expect(response.body).toEqual(
           expect.arrayContaining([
             expect.objectContaining({
+              id: expect.any(Number),
               name: expect.any(String),
               completed: expect.any(Boolean),
             }),
@@ -28,6 +29,7 @@ describe('Todos API', () => {
       .then((response) => {
         expect(response.body).toEqual(
           expect.objectContaining({
+            id: expect.any(Number),
             name: expect.any(String),
             completed: expect.any(Boolean),
           })
